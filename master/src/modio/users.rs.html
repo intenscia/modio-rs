@@ -117,7 +117,6 @@
 <span class="kw">use</span> <span class="ident">hyper</span>::<span class="ident">client</span>::<span class="ident">connect</span>::<span class="ident">Connect</span>;
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">form_urlencoded</span>;
 
-<span class="kw">use</span> <span class="ident">filter</span>::{<span class="ident">Filter</span>, <span class="ident">OneOrMany</span>, <span class="ident">Operator</span>, <span class="ident">Order</span>, <span class="ident">SortField</span>};
 <span class="kw">use</span> <span class="ident">Future</span>;
 <span class="kw">use</span> <span class="ident">Modio</span>;
 <span class="kw">use</span> <span class="ident">ModioListResponse</span>;
@@ -160,6 +159,7 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Resource</span> {
     <span class="ident">Game</span>(<span class="ident">u32</span>),
     <span class="ident">Mod</span>(<span class="ident">u32</span>),

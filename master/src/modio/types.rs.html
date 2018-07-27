@@ -663,9 +663,9 @@
         <span class="prelude-val">Ok</span>(<span class="ident">avatar</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">avatar</span>)),
         <span class="prelude-val">Err</span>(<span class="ident">err</span>) <span class="op">=&gt;</span> {
             <span class="kw">let</span> <span class="ident">err_s</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">err</span>);
-            <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;missing field `filename`&quot;</span>) {
-                <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
-            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;invalid type: null&quot;</span>) {
+            <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;missing field `filename`&quot;</span>)
+                <span class="op">||</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;invalid type: null&quot;</span>)
+            {
                 <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
             } <span class="kw">else</span> {
                 <span class="prelude-val">Err</span>(<span class="ident">err</span>)
@@ -953,8 +953,8 @@
     }
 
     <span class="kw">impl</span> <span class="ident">TeamLevel</span> {
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u64</span> {
-            (<span class="kw-2">*</span><span class="self">self</span> <span class="kw">as</span> <span class="ident">u64</span>)
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">value</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u64</span> {
+            <span class="self">self</span> <span class="kw">as</span> <span class="ident">u64</span>
         }
     }
 
@@ -1012,9 +1012,9 @@
             <span class="prelude-val">Ok</span>(<span class="ident">file</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(<span class="ident">file</span>)),
             <span class="prelude-val">Err</span>(<span class="ident">err</span>) <span class="op">=&gt;</span> {
                 <span class="kw">let</span> <span class="ident">err_s</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">err</span>);
-                <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;missing field `id`&quot;</span>) {
-                    <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
-                } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;invalid type: null&quot;</span>) {
+                <span class="kw">if</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;missing field `id`&quot;</span>)
+                    <span class="op">||</span> <span class="ident">err_s</span>.<span class="ident">starts_with</span>(<span class="string">&quot;invalid type: null&quot;</span>)
+                {
                     <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>)
                 } <span class="kw">else</span> {
                     <span class="prelude-val">Err</span>(<span class="ident">err</span>)

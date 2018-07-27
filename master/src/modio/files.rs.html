@@ -339,8 +339,6 @@
 <span id="339">339</span>
 <span id="340">340</span>
 <span id="341">341</span>
-<span id="342">342</span>
-<span id="343">343</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Modfile interface</span>
 
@@ -351,7 +349,6 @@
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">form_urlencoded</span>;
 
 <span class="kw">use</span> <span class="ident">error</span>::<span class="ident">Error</span>;
-<span class="kw">use</span> <span class="ident">filter</span>::{<span class="ident">Filter</span>, <span class="ident">OneOrMany</span>, <span class="ident">Operator</span>, <span class="ident">Order</span>, <span class="ident">SortField</span>};
 <span class="kw">use</span> <span class="ident">Future</span>;
 <span class="kw">use</span> <span class="ident">Modio</span>;
 <span class="kw">use</span> <span class="ident">ModioListResponse</span>;
@@ -647,13 +644,12 @@
     }
 }
 
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Default</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EditFileOptionsBuilder</span>(<span class="ident">EditFileOptions</span>);
 
 <span class="kw">impl</span> <span class="ident">EditFileOptionsBuilder</span> {
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="self">Self</span> {
-        <span class="ident">EditFileOptionsBuilder</span>(<span class="ident">EditFileOptions</span> {
-            ..<span class="ident">Default</span>::<span class="ident">default</span>()
-        })
+        <span class="ident">Default</span>::<span class="ident">default</span>()
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">version</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">S</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
@@ -680,7 +676,7 @@
         <span class="ident">EditFileOptions</span> {
             <span class="ident">version</span>: <span class="self">self</span>.<span class="number">0</span>.<span class="ident">version</span>.<span class="ident">clone</span>(),
             <span class="ident">changelog</span>: <span class="self">self</span>.<span class="number">0</span>.<span class="ident">changelog</span>.<span class="ident">clone</span>(),
-            <span class="ident">active</span>: <span class="self">self</span>.<span class="number">0</span>.<span class="ident">active</span>.<span class="ident">clone</span>(),
+            <span class="ident">active</span>: <span class="self">self</span>.<span class="number">0</span>.<span class="ident">active</span>,
             <span class="ident">metadata_blob</span>: <span class="self">self</span>.<span class="number">0</span>.<span class="ident">metadata_blob</span>.<span class="ident">clone</span>(),
         }
     }
