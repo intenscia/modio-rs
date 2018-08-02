@@ -99,6 +99,11 @@
 <span id="99"> 99</span>
 <span id="100">100</span>
 <span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Mod comments interface</span>
 
@@ -140,6 +145,11 @@
             <span class="ident">uri</span>.<span class="ident">push</span>(<span class="ident">query</span>);
         }
         <span class="self">self</span>.<span class="ident">modio</span>.<span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="ident">uri</span>.<span class="ident">join</span>(<span class="string">&quot;?&quot;</span>))
+    }
+
+    <span class="doccomment">/// Return comment by id.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u32</span>) <span class="op">-&gt;</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">Comment</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">modio</span>.<span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">path</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;/{}&quot;</span>, <span class="ident">id</span>)))
     }
 
     <span class="doccomment">/// Delete a comment by id.</span>

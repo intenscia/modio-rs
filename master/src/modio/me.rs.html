@@ -173,7 +173,7 @@
     }
 
     <span class="doccomment">/// Return the authenticated user.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">user</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">User</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">authenticated_user</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Future</span><span class="op">&lt;</span><span class="ident">User</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">modio</span>.<span class="ident">get</span>(<span class="string">&quot;/me&quot;</span>)
     }
 
